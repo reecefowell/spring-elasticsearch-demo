@@ -1,6 +1,10 @@
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+	archiveName = 'app.jar'
+}
+
 buildscript {
 	ext {
 		springBootVersion = '1.5.7.RELEASE'
