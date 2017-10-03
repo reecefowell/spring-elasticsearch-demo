@@ -1,0 +1,28 @@
+- include: common.yml
+- include: elasticsearch.yml
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    parameters_files:
+      - "{{ playbook_dir }}/../src/main/resources/application-default.properties"
+      - "{{ playbook_dir }}/../src/main/resources/application-test.properties"
+
+  tasks:
+    - name: Ensure parameters files exist
+      file:
+        path: "{{ item }}"
+        state: touch
+      with_items: "{{ parameters_files }}"
+
+    - name: Update parameters based on Vagrant setup
+      lineinfile:
+        dest: "{{ item[0] }}"
+        regexp: "{{ item[1].regexp }}"
+        line: "{{ item[1].line }}"
+      with_nested:
+        - "{{ parameters_files }}"
+        - - regexp: ^elasticsearch\.hosts
+            line: elasticsearch.hosts={{ hostvars['elasticsearch']['ansible_all_ipv4_addresses']|max }}

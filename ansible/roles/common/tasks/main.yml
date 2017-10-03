@@ -1,0 +1,16 @@
+- name: Install Python
+  raw: apt install python -y
+
+- name: Gather facts
+  setup:
+
+- name: Ensure common packages are installed
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - aptitude
+    - bash-completion
+    - htop
+    - pv
+    - time
