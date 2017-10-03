@@ -1,0 +1,9 @@
+spring:
+
+index-prefix:
+
+---
+spring:
+  profiles: test
+
+index-prefix: test_
