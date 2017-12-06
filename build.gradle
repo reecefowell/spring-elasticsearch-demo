@@ -1,6 +1,9 @@
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+group = 'com.elasticdemo'
+version = '0.0.1-SNAPSHOT'
+
 jar {
     archiveName = 'app.jar'
 }
@@ -19,9 +22,6 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-
-group = 'com.elasticdemo'
-version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
