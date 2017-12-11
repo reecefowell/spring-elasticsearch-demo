@@ -1,3 +1,6 @@
+- name: Run the equivalent of "apt-get update" as a separate step
+  raw: apt-get update
+
 - name: Install Python
   raw: apt install python -y
 
