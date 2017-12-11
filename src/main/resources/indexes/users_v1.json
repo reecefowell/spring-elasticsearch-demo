@@ -1,0 +1,18 @@
+{
+  "user": {
+    "properties": {
+      "id": {
+        "type": "long"
+      },
+      "firstName": {
+        "type": "keyword"
+      },
+      "lastName": {
+        "type": "keyword"
+      },
+      "age": {
+        "type": "integer"
+      }
+    }
+  }
+}
